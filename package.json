@@ -1,0 +1,63 @@
+{
+  "name": "@pito-plugin/moment",
+  "version": "1.0.0",
+  "description": "pito plugin for moment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamGreedy/pito-moment.git"
+  },
+  "main": "./cjs/pito.js",
+  "module": "./esm/pito.js",
+  "types": "./types/pito.d.ts",
+  "exports": {
+    ".": {
+      "import": "./esm/pito.js",
+      "types": "./types/pito.d.ts",
+      "require": "./cjs/pito.js"
+    }
+  },
+  "files": [
+    "cjs/**/*.js",
+    "cjs/package.json",
+    "types/**/*.d.ts",
+    "esm/**/*.js",
+    "esm/package.json"
+  ],
+  "scripts": {
+    "test": "tap --ts",
+    "build": "npm run clear & tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json",
+    "build:cjs": "npm run clear:cjs && tsc -b ./cjs/tsconfig.json",
+    "build:esm": "npm run clear:esm && tsc -b ./esm/tsconfig.json",
+    "build:types": "npm run clear:types && tsc -b ./types/tsconfig.json",
+    "watch": "npm run clear & tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json --watch",
+    "watch:cjs": "npm run clear:cjs && tsc -b ./cjs/tsconfig.json --watch",
+    "watch:esm": "npm run clear:esm && tsc -b ./esm/tsconfig.json --watch",
+    "watch:types": "npm run clear:types && tsc -b ./types/tsconfig.json --watch",
+    "clear": "npm run clear:cjs & npm run clear:esm & npm run clear:types",
+    "clear:cjs": "rimraf ./cjs/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
+    "clear:esm": "rimraf ./esm/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
+    "clear:types": "rimraf ./types/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "typescript",
+    "json-schema",
+    "pito"
+  ],
+  "author": "egoavara",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@types/tap": "^15.0.7",
+    "rimraf": "^3.0.2",
+    "tap": "^16.3.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4",
+    "pito": "^0.3.4",
+    "moment": "^2.29.4"
+  },
+  "peerDependencies": {
+    "pito": "^0.3.4",
+    "moment": "^2.0.0"
+  }
+}
