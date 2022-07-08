@@ -1,6 +1,6 @@
 {
   "name": "@pito-plugin/moment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "pito plugin for moment",
   "repository": {
     "type": "git",
