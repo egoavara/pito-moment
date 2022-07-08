@@ -4,7 +4,7 @@ specifiers:
   '@types/node': ^18.0.3
   '@types/tap': ^15.0.7
   moment: ^2.29.4
-  pito: ^0.3.3
+  pito: ^0.3.4
   rimraf: ^3.0.2
   tap: ^16.3.0
   ts-node: ^10.8.2
@@ -14,7 +14,7 @@ devDependencies:
   '@types/node': 18.0.3
   '@types/tap': 15.0.7
   moment: 2.29.4
-  pito: 0.3.3
+  pito: 0.3.4
   rimraf: 3.0.2
   tap: 16.3.0_bn3y5sn7aa6hsplivwol7ie4em
   ts-node: 10.8.2_fxk5i3xm3ivo7fjwhcizcinpla
@@ -1102,8 +1102,8 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pito/0.3.3:
-    resolution: {integrity: sha512-Qq/RgT57EwdnmAXCLPNZgC4N8iTkz+1Se0A+jpXGqurD9rZ3IU0ZZvBVKC/zHBLw27K/Lae/5L4Lz/vaFVqH8g==}
+  /pito/0.3.4:
+    resolution: {integrity: sha512-LWg/+WfODZurQdpviTJ3mZ9ZYX7W1rmKn1h7M93CeeL3CFok9Kwm0qoU70U6wq2Xt1pfPwO9zWew5/VQGbzvDw==}
     dev: true
 
   /pkg-dir/4.2.0:

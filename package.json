@@ -6,14 +6,14 @@
     "type": "git",
     "url": "https://github.com/iamGreedy/pito-moment.git"
   },
-  "main": "./cjs/pito.js",
-  "module": "./esm/pito.js",
-  "types": "./types/pito.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./esm/pito.js",
-      "types": "./types/pito.d.ts",
-      "require": "./cjs/pito.js"
+      "import": "./esm/index.js",
+      "types": "./types/index.d.ts",
+      "require": "./cjs/index.js"
     }
   },
   "files": [
