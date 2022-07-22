@@ -1,63 +1,51 @@
 {
-  "name": "@pito-plugin/moment",
-  "version": "1.0.1",
-  "description": "pito plugin for moment",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/iamGreedy/pito-moment.git"
-  },
-  "main": "./cjs/index.js",
-  "module": "./esm/index.js",
-  "types": "./types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./esm/index.js",
-      "types": "./types/index.d.ts",
-      "require": "./cjs/index.js"
+    "name": "@pito-plugin/moment",
+    "version": "0.0.1",
+    "description": "",
+    "type": "module",
+    "types": "./types/index.d.ts",
+    "main": "./cjs/index.js",
+    "module": "./esm/index.js",
+    "exports": {
+        ".": {
+            "import": "./esm/index.js",
+            "types": "./types/index.d.ts",
+            "require": "./cjs/index.js"
+        }
+    },
+    "files": [
+        "types/**/*.d.ts",
+        "cjs/**/*.js",
+        "cjs/package.json",
+        "esm/**/*.js",
+        "esm/package.json"
+    ],
+    "scripts": {
+        "build": "rimraf \"{cjs,esm,types}/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}\" && tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json",
+        "watch": "rimraf \"{cjs,esm,types}/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}\" && tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json --watch",
+        "postversion": "npm publish --access=public",
+        "prepack": "npm run build",
+        "setup-test": "docker compose -f ./test/docker-compose.yml -p fastify-modular-pg up -d ",
+        "test": "tap --node-arg=--loader=ts-node/esm ./tests/*.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^18.0.5",
+        "@types/tap": "^15.0.7",
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
+        "@typescript-eslint/parser": "^5.30.7",
+        "eslint": "^8.20.0",
+        "moment": "^2.29.4",
+        "pito": "^0.4.3",
+        "rimraf": "^3.0.2",
+        "tap": "^16.3.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.7.4"
+    },
+    "peerDependencies": {
+        "moment": ">=2.29.0",
+        "pito": "^0.4.3"
     }
-  },
-  "files": [
-    "cjs/**/*.js",
-    "cjs/package.json",
-    "types/**/*.d.ts",
-    "esm/**/*.js",
-    "esm/package.json"
-  ],
-  "scripts": {
-    "test": "tap --ts",
-    "build": "npm run clear & tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json",
-    "build:cjs": "npm run clear:cjs && tsc -b ./cjs/tsconfig.json",
-    "build:esm": "npm run clear:esm && tsc -b ./esm/tsconfig.json",
-    "build:types": "npm run clear:types && tsc -b ./types/tsconfig.json",
-    "watch": "npm run clear & tsc -b ./cjs/tsconfig.json ./esm/tsconfig.json ./types/tsconfig.json --watch",
-    "watch:cjs": "npm run clear:cjs && tsc -b ./cjs/tsconfig.json --watch",
-    "watch:esm": "npm run clear:esm && tsc -b ./esm/tsconfig.json --watch",
-    "watch:types": "npm run clear:types && tsc -b ./types/tsconfig.json --watch",
-    "clear": "npm run clear:cjs & npm run clear:esm & npm run clear:types",
-    "clear:cjs": "rimraf ./cjs/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
-    "clear:esm": "rimraf ./esm/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
-    "clear:types": "rimraf ./types/**/*.{js,js.map,d.ts,d.ts.map,tsbuildinfo}",
-    "prepack": "npm run build"
-  },
-  "keywords": [
-    "typescript",
-    "json-schema",
-    "pito"
-  ],
-  "author": "egoavara",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^18.0.3",
-    "@types/tap": "^15.0.7",
-    "rimraf": "^3.0.2",
-    "tap": "^16.3.0",
-    "ts-node": "^10.8.2",
-    "typescript": "^4.7.4",
-    "pito": "^0.3.4",
-    "moment": "^2.29.4"
-  },
-  "peerDependencies": {
-    "pito": "^0.3.4",
-    "moment": "^2.0.0"
-  }
 }

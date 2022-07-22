@@ -1,68 +1,66 @@
-import moment, { Duration, Moment } from 'moment'
-import { pito, plugin } from 'pito'
+import moment ,{ Duration ,Moment , } from 'moment'
+import { pito ,plugin , } from 'pito'
 
-// moment, datetime
-// moment, date
-export type MomentExtra = {
-}
-export type MomentOption = {
-
-}
+/*
+ * Moment, datetime
+ * moment, date
+ */
+export type MomentExtra = Record<string ,unknown>
+export type MomentOption = Record<string ,unknown>
 export type MomentSchema<Format extends 'date' | 'date-time'> = {
-    type: 'string',
+    type: 'string'
     format: Format
 }
-export type PitoMoment<Format extends 'date' | 'date-time'> = pito<string, Moment, MomentSchema<Format>, MomentOption, MomentExtra>
-export const PitoMoment = <Format extends 'date' | 'date-time'>(format: Format): PitoMoment<Format> => {
+export type PitoMoment<Format extends 'date' | 'date-time'> = pito<string ,Moment ,MomentSchema<Format> ,MomentOption ,MomentExtra>
+export const PitoMoment = <Format extends 'date' | 'date-time'>(format: Format ,): PitoMoment<Format> => {
     return {
-        type: 'string',
-        format: format,
-        $wrap(data) {
-            if (this.format === 'date') {
-                return data.format('YYYY-MM-DD')
-            } else {
-                return data.format('YYYY-MM-DDThh:mm:ssZ')
-            }
-        },
-        $unwrap(raw) { return moment(raw, true) },
+        type:   'string' ,
+        format: format ,
+        $wrap(data ,) {
+            if (this.format === 'date') return data.format('YYYY-MM-DD' ,)
+             
+            return data.format('YYYY-MM-DDThh:mm:ssZ' ,)
+            
+        } ,
+        $unwrap(raw ,) { return moment(raw ,true ,) } ,
         $strict() {
             return {
-                type: 'string',
-                format: format,
+                type:   'string' ,
+                format: format ,
+
             }
-        },
-        $bypass() { return false },
+        } ,
+        $bypass() { return false } ,
+        $typeof: 'any' , // Currently, there is no interface support
     }
 }
-// moment, duration
-export type MomentDurationExtra = {
-}
-export type MomentDurationOption = {
-
-}
+// Moment, duration
+export type MomentDurationExtra = Record<string ,unknown>
+export type MomentDurationOption = Record<string ,unknown>
 export type MomentDurationSchema = {
-    type: 'string',
+    type: 'string' ,
     format: 'duration'
 }
-export type PitoMomentDuration = pito<string, Duration, MomentDurationSchema, MomentDurationOption, MomentDurationExtra>
+export type PitoMomentDuration = pito<string ,Duration ,MomentDurationSchema ,MomentDurationOption ,MomentDurationExtra>
 export const PitoMomentDuration = (): PitoMomentDuration => {
     return {
-        type: 'string',
-        format: 'duration',
-        $wrap(data) { return data.toISOString() },
-        $unwrap(raw) { return moment.duration(raw) },
+        type:   'string' ,
+        format: 'duration' ,
+        $wrap(data ,) { return data.toISOString() } ,
+        $unwrap(raw ,) { return moment.duration(raw ,) } ,
         $strict() {
             return {
-                type: 'string',
-                format: 'duration',
+                type:   'string' ,
+                format: 'duration' ,
             }
-        },
-        $bypass() { return false },
+        } ,
+        $bypass() { return false } ,
+        $typeof: 'any' , // Currently, there is no interface support
     }
 }
-// moment, time
-Object.defineProperty(plugin, 'Moment', { value: PitoMoment, configurable: false, writable: false })
-Object.defineProperty(plugin, 'Duration', { value: PitoMomentDuration, configurable: false, writable: false })
+// Moment, time
+Object.defineProperty(plugin ,'Moment' ,{ value: PitoMoment ,configurable: false ,writable: false , } ,)
+Object.defineProperty(plugin ,'Duration' ,{ value: PitoMomentDuration ,configurable: false ,writable: false , } ,)
 declare module 'pito' {
     interface PitoPlugin {
         Moment: typeof PitoMoment

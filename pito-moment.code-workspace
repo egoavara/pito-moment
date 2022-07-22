@@ -1,37 +1,72 @@
 {
-    "folders": [
-        {
-            "name": "[source]",
-            "path": "./src",
-        },
-        {
-            "name": "[tests]",
-            "path": "./tests",
-        },
-        {
-            "name": "[root]",
-            "path": ".",
-        }
-    ],
-    "settings": {
-        "typescript.preferences.importModuleSpecifierEnding": "js",
-        "prettier.tabWidth": 4,
-    },
-    "tasks": {
-        "version": "2.0.0",
-        "tasks": [
-            {
-                "label": "watch",
-                "type": "npm",
-                "script": "watch",
-                "problemMatcher": [
-                    "$tsc-watch"
-                ],
-                "group": {
-                    "kind": "build",
-                    "isDefault": true
-                }
-            }
-        ]
-    }
+	"folders": [
+		{
+			"path": "./src",
+			"name": "[source]"
+		},
+		{
+			"path": "./tests",
+			"name": "[tests]"
+		},
+		{
+			"path": ".",
+			"name": "[root]"
+		}
+	],
+	"settings": {
+		"eslint.enable": true,
+		"eslint.nodePath": "node_modules",
+		"eslint.codeActionsOnSave.mode": "all",
+		"eslint.alwaysShowStatus": true,
+		"typescript.format.enable": false,
+		"typescript.preferences.importModuleSpecifierEnding": "js",
+		"[typescript]": {
+			"editor.codeActionsOnSave": {
+				"source.fixAll": true
+			},
+			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		},
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "watch",
+				"type": "npm",
+				"script": "watch",
+				"problemMatcher": [
+					"$tsc-watch"
+				],
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				}
+			},
+			{
+				"label": "test",
+				"type": "npm",
+				"script": "test",
+				"group": {
+					"kind": "test",
+					"isDefault": true
+				}
+			},
+			{
+				"label": "publish",
+				"type": "shell",
+				"command":"pnpm",
+				"args": [
+					"version",
+					"${input:PromptVersion}"
+				],
+			},
+		],
+		"inputs": [
+			{
+				"id": "PromptVersion",
+				"type": "promptString",
+				"description": "새로 선택할 버전을 입력하세요"
+			}
+		]
+	}
 }

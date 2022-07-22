@@ -1,0 +1,12 @@
+cjs/**/*.d.ts
+cjs/**/*.d.ts.map
+cjs/**/*.js
+cjs/**/*.js.map
+
+esm/**/*.d.ts
+esm/**/*.d.ts.map
+esm/**/*.js
+esm/**/*.js.map
+
+types/**/*.d.ts
+types/**/*.d.ts.map
