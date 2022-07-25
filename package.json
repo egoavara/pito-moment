@@ -46,6 +46,6 @@
     },
     "peerDependencies": {
         "moment": ">=2.29.0",
-        "pito": "^0.4.3"
+        "pito": ">=0.4.4"
     }
 }
