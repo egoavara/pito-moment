@@ -7,7 +7,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.30.7
   eslint: ^8.20.0
   moment: ^2.29.4
-  pito: ^0.4.3
+  pito: ^1.0.0
   rimraf: ^3.0.2
   tap: ^16.3.0
   ts-node: ^10.9.1
@@ -20,7 +20,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
   eslint: 8.20.0
   moment: 2.29.4
-  pito: 0.4.3
+  pito: 1.0.0
   rimraf: 3.0.2
   tap: 16.3.0_6oasmw356qmm23djlsjgkwvrtm
   ts-node: 10.9.1_tdn3ypgnfy6bmey2q4hu5jonwi
@@ -1637,8 +1637,8 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pito/0.4.3:
-    resolution: {integrity: sha512-wfkn7wY72uSsZuoZuzFF+Xz1T1GHFBUzToo4DvEQEjaD3CK33e9UYQNorqJysKQG60OCU1sx0uJbYlovycBG/Q==}
+  /pito/1.0.0:
+    resolution: {integrity: sha512-yOGhwGvSWWGz6jNolbkAApoWoSfATDX+Ne4LO0eHo1I/+aUY3xhHVkcFVLqmQCP+ABaiPRx5g03GQyQQgDoWRQ==}
     dev: true
 
   /pkg-dir/4.2.0:

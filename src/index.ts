@@ -1,5 +1,5 @@
 import moment ,{ Duration ,Moment , } from 'moment'
-import { pito ,plugin , } from 'pito'
+import { pito ,  } from 'pito'
 
 /*
  * Moment, datetime
@@ -58,16 +58,9 @@ export const PitoMomentDuration = (): PitoMomentDuration => {
         $typeof: 'any' , // Currently, there is no interface support
     }
 }
-// Moment, time
-Object.defineProperty(plugin ,'Moment' ,{ value: PitoMoment ,configurable: false ,writable: false , } ,)
-Object.defineProperty(plugin ,'Duration' ,{ value: PitoMomentDuration ,configurable: false ,writable: false , } ,)
-declare module 'pito' {
-    interface PitoPlugin {
-        Moment: typeof PitoMoment
-        Duration: typeof PitoMomentDuration
-    }
-    namespace pito {
-        type Moment<Format extends 'date' | 'date-time'> = PitoMoment<Format>
-        type Duration = PitoMomentDuration
-    }
+
+export const Plugin = {
+    Moment:   PitoMoment ,
+    Duration: PitoMomentDuration ,
 }
+export default Plugin
